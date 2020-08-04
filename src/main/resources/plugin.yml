@@ -1,0 +1,4 @@
+name: GamemodeChanger
+version: ${project.version}
+main: me.yama2211.gm.gamemodechanger.GamemodeChanger
+

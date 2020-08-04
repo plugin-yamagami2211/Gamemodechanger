@@ -1,0 +1,13 @@
+#
+# GamemodeChanger Config Files
+#
+Gamemode:
+  Survival: "&aゲームモードを &lサバイバル &r&aに変更しました。"
+  Creative: "&aゲームモードを &lクリエイティブ &r&aに変更しました。"
+  Adventure: "&aゲームモードを &lアドベンチャー &r&aに変更しました。"
+  Spectator: "&aゲームモードを &lスペクテイター &r&aに変更しました。"
+  Player:
+    Survival: "&a&l%player &r&aのゲームモードを &lサバイバル &r&aに変更しました。"
+    Creative: "&a&l%player &r&aのゲームモードを &lクリエイティブ &r&aに変更しました。"
+    Adventure: "&a&l%player &r&aのゲームモードを &lアドベンチャー &r&aに変更しました。"
+    Spectator: "&a&l%player &r&aのゲームモードを &lスペクテイター &r&aに変更しました。"

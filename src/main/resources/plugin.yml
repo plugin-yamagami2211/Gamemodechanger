@@ -2,3 +2,27 @@ name: GamemodeChanger
 version: ${project.version}
 main: me.yama2211.gm.gamemodechanger.GamemodeChanger
 
+commands:
+  gm:
+    description: /gm
+
+permissions:
+  gamemode.survival:
+    description: survival
+    default: op
+  gamemode.creative:
+    description: creative
+    default: op
+  gamemode.adventure:
+    description: adventure
+    default: op
+  gamemode.spectator:
+    description: spectator
+    default: op
+  gamemode.*:
+    default: op
+    children:
+      gamemode.survival: true
+      gamemode.creative: true
+      gamemode.adventure: true
+      gamemode.spectator: true

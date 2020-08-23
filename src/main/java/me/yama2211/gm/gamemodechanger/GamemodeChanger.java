@@ -2,8 +2,10 @@
 *
 * GamemodeChanger
 *
+* WebSite1: https://forum.civa.jp/viewtopic.php?f=15&t=368#p1965
+* WebSite2: https://mc.yama2211.net/contents/gamemodechanger.html
+* SourceCode: https://github.com/plugin-yamagami2211/Gamemodechanger
 * */
-
 package me.yama2211.gm.gamemodechanger;
 
 import org.bukkit.ChatColor;
@@ -15,10 +17,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class GamemodeChanger extends JavaPlugin {
 
+
     @Override
     public void onEnable() {
         // Plugin startup logic
         saveDefaultConfig();
+        if(getConfig().getBoolean("Update")){
+        new UpdateChecker(this,"GamemodeChanger").getVersion(version -> {
+            if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                getLogger().info("利用可能なアップデートがあります。配布フォーラムをご確認ください。");
+            }
+        });
+        }
     }
 
     @Override
@@ -34,7 +44,7 @@ public final class GamemodeChanger extends JavaPlugin {
 
             if (cmd.getName().equalsIgnoreCase("gm")) {
                 if (args.length == 0) {
-                    player.sendMessage(ChatColor.RED + "/gm <0|1|2|3> [playername]");
+                    player.sendMessage(ChatColor.RED + "/gm <0|1|2|3>");
                 }
 
                 if (args.length == 1) {
@@ -81,9 +91,16 @@ public final class GamemodeChanger extends JavaPlugin {
                         }
                 }//args 1
             }//cmd.getName gm
-
-
         }//sender instanceof Player
+
+            if (cmd.getName().equalsIgnoreCase("gmreload")) {
+                if (args.length == 0) {
+                    if(sender.hasPermission("gamemode.configreload")){
+                        reloadConfig();
+                        sender.sendMessage(ChatColor.AQUA + "[GamemodeChanger]" + ChatColor.GREEN + "Configをリロードしました。" );
+                    }
+                }
+            }
 
         return true;
     }

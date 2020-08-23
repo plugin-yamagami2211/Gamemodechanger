@@ -5,10 +5,15 @@ main: me.yama2211.gm.gamemodechanger.GamemodeChanger
 commands:
   gm:
     description: /gm
+  gmreload:
+    description: /gmreload
 
 permissions:
   gamemode.survival:
     description: survival
+    default: op
+  gamemode.configreload:
+    description: configreload
     default: op
   gamemode.creative:
     description: creative
